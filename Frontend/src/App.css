@@ -1,0 +1,226 @@
+.main-con {
+    max-width: 800px;
+    width: 80%;
+    margin: 0 auto;
+}
+.nav-con {
+    box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.31);
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-con > div > a {
+    text-decoration: none;
+    color : inherit;
+    margin: 0 5px;
+    font-size: 1.1rem;
+    font-weight: 650;
+    transition: all .3s;
+}
+.nav-con > div > a.active {
+    color: aquamarine;
+}
+.nav-con > div > a:hover {
+    color: aquamarine;
+}
+.postItem-container {
+    padding: 2rem 0;
+    display: grid;
+    gap: 1rem ;
+    grid-template-columns: repeat(2,1fr);
+}
+.nav-con > a {
+    text-decoration: none;
+    color: inherit;
+}
+.postItem-con {
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.31);
+}
+.postItem-con > a > img {
+    width: 100%;
+    height: 270px;
+    object-fit: cover;
+}
+.info-con > h2,.info-con > p {
+    margin: 0;
+    padding: 4px 0;
+}
+.info-con {
+    padding: 1rem;
+}
+.info-con > p {
+    color: gray;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+}
+.single-container > img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+.single-container {
+    padding: 3rem 0;
+}
+.single-container > h3, .single-container > p {
+    margin: 0;
+    padding: 5px 0;
+}
+.single-container > p {
+    padding: 0 0 1rem 0;
+    font-size: 1rem;
+    color: gray;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+}
+.single-container > h3 {
+    font-size: 1.3rem;
+}
+.clockIcon, .arroIcon {
+    width: 20px;
+    height: 20px;
+}
+.top-con {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.top-con > a {
+    color: inherit;
+    text-decoration: none;
+}
+.form-con > h2 {
+    text-align: center;
+    font-size: 2rem;
+}
+.form-con {
+    max-width: 500px;
+    width: 70%;
+    margin:  0 auto;
+    padding: 3rem 0;
+}
+.form-input > label{
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.form-input {
+    margin: 1rem 0;
+}
+.form-input > input {
+    width: 100%;
+    margin: .5rem 0;
+    box-shadow: 0px 0px 5px -2px rgba(0,0,0,0.72);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 1rem;
+    font-size: 1rem;
+    height: 30px;
+}
+.form-input > input:focus {
+    outline: none;
+    box-shadow: 0px 0px 5px 2px rgba(153,247,255,0.62);
+}
+.form-input > textarea {
+    width: 100%;
+    padding: 1rem;
+    height: 120px;
+    font-size: 1rem;
+    margin: .5rem 0;
+    border-radius: 5px;
+    resize: none;
+    border: none;
+    box-shadow: 0px 0px 5px -2px rgba(0,0,0,0.72);
+}
+.form-input > textarea:focus {
+    outline: none;
+    box-shadow: 0px 0px 5px 2px rgba(153,247,255,0.62);
+}
+.post-btn {
+    width: 107%;
+    background-color: cornflowerblue;
+    color: white;
+    padding: 6px 0;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.arrow-con {
+    width: 30px;
+}
+.title-con {
+    margin: 1rem 0 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.title-con > h2 {
+    margin:  0;
+}
+.btn-con {
+    display: flex;
+    gap: 1rem;
+}
+.edit {
+    color: green;
+    border: 2px solid green;
+}
+.btn-con > a {
+    text-decoration: none;
+    color: inherit;
+}
+.btn {
+    font-size: 1.2rem;
+    padding: 4px 1.4rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.delete {
+    color: red;
+    border: 2px solid red;
+}
+.error-con {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    /* max-width: 500px;
+    margin: auto; */
+}
+.error {
+    text-align: center;
+}
+.error > h2  {
+    margin: 0;
+    font-size: 2rem;
+}
+.error > a {
+    text-decoration: none;
+    color: inherit;
+}
+.error > a > p {
+    background-color: cornflowerblue;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 2px;
+    padding: 3px 1rem;
+    font-weight: 600;
+    display: inline-block;
+}
+.error-icon {
+    width: 200px;
+}
+.error-p {
+    color: red;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    padding: 2px 0;
+}

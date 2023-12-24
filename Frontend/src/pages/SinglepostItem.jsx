@@ -1,10 +1,13 @@
-import { Link, redirect, useRouteLoaderData, useSubmit } from "react-router-dom"
+import { Link, json, redirect, useRouteLoaderData, useSubmit } from "react-router-dom"
 import {CalendarDaysIcon,ArrowLeftIcon} from "@heroicons/react/24/solid";
+import { getToken } from "./util/auth";
 
 const SinglepostItem = () => {
     const data = useRouteLoaderData("post-detail");
     const {date,description,title,image} = data;
     const submit = useSubmit();
+    const isToken = useRouteLoaderData("root");
+
 
     const deleteHandler = () => {
 
@@ -25,12 +28,16 @@ const SinglepostItem = () => {
         </div>
         <img src={image} alt={title} />
         <p>{description}</p>
-        <div className="btn-con">
-        <Link to={`edit-post/`}>
-            <p className="edit btn">Edit</p>
-        </Link>
-        <p className="delete btn" onClick={deleteHandler}>Delete</p>
-        </div>
+        {
+            isToken && (
+                <div className="btn-con">
+                <Link to={`edit-post/`}>
+                    <p className="edit btn">Edit</p>
+                </Link>
+                <p className="delete btn" onClick={deleteHandler}>Delete</p>
+                </div>
+            )
+        }
 
        </section>
     )
@@ -50,11 +57,16 @@ export const loader = async ({request,params}) => {
 }
 
 export const action = async ({request,params}) => {
+    const token = getToken();
     const response = await fetch(`http://localhost:8080/posts/${params.id}`,{
         method : request.method,
+        headers : {
+        "Authorization" : "Bearer " + token,
+        }
     });
+
     if(!response.ok){
-         
+        throw json ({message : "Error occur in delete action."},{status : 500})
     }
 
     return redirect("/");

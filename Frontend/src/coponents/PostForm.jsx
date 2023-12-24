@@ -1,10 +1,12 @@
-import {Form, Link,redirect,useActionData} from "react-router-dom"
+import {Form, Link,json,redirect,useActionData} from "react-router-dom"
 import {ArrowLeftIcon} from "@heroicons/react/24/solid";
 import uuid from 'react-uuid'
+import { getToken } from "../pages/util/auth";
 
 
 const PostForm = ({header,btn,post,method}) => {
     const data = useActionData();
+
     const errArray =[];
 
     if(data && data.errors) {
@@ -78,14 +80,14 @@ const PostForm = ({header,btn,post,method}) => {
   )
 }
 
-export default PostForm
+export default PostForm;
 
-
-// action is like loader fct but it using method //
 
 export const action = async ({request,params}) => {
     const data = await request.formData();
     const method = request.method;
+    const token = getToken();
+
   
     const postData = {
       id : uuid(),
@@ -106,16 +108,18 @@ export const action = async ({request,params}) => {
         method : method,
         headers : {
           "Content-Type" : "application/json",
+           Authorization : "Bearer " + token,
         },
         body : JSON.stringify(postData)
     })
+
   
     if(response.status === 422) {
       return response;
     }
   
     if(!response.ok) {
-      throw new Error ("");
+      throw json ({message : "Error occur in post form"})
     }
       return redirect('/');
   }

@@ -5,8 +5,6 @@ const Edit = () => {
 
   const post = useRouteLoaderData("post-detail");
 
-  console.log(post);
-
 
   return (
     <>

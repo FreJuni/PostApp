@@ -10,15 +10,27 @@ import { loader as singlePost } from "./pages/SinglepostItem";
 import { action as updateAction } from "./coponents/PostForm";
 import Edit from "./coponents/Edit";
 import Error from "./coponents/Error";
+import Auth, { action as authAction } from "./pages/Auth";
+import { loader as logoutLoader } from "./pages/logout.js";
+import { tokenLoader, checkkTokenLoader } from "./pages/util/auth.js";
 
 const router = createBrowserRouter([
   {
     path: "",
     element: <Main />,
+    id: "root",
+    loader: tokenLoader,
     errorElement: <Error />,
     children: [
       { index: true, element: <Post />, loader: postLoader },
-      { path: "/create-post", element: <CreatePost />, action: postAction },
+      {
+        path: "/create-post",
+        element: <CreatePost />,
+        action: postAction,
+        loader: checkkTokenLoader,
+      },
+      { path: "/auth", element: <Auth />, action: authAction },
+      { path: "/logout", loader: logoutLoader },
       {
         path: ":id",
         id: "post-detail",
@@ -33,6 +45,7 @@ const router = createBrowserRouter([
             path: "edit-post/",
             element: <Edit />,
             action: updateAction,
+            loader: checkkTokenLoader,
           },
         ],
       },

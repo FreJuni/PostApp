@@ -1,6 +1,7 @@
 import { json, useLoaderData } from "react-router-dom"
 import PostItem from "../coponents/PostItem";
 
+
 const Home = () => {
 const data = useLoaderData();
 
@@ -19,7 +20,7 @@ const data = useLoaderData();
 export default Home
 
 export const loader = async () => {
-  const response = await fetch("http://localhost:8080/posts");
+  const response = await fetch(`${process.env.REACT_APP_DOMAIN}/posts`);
 
   if(!response.ok) {
     throw json ({message : "Error occur in your application."},{status : 500})

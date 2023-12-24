@@ -46,7 +46,7 @@ const SinglepostItem = () => {
 export default SinglepostItem
 
 export const loader = async ({request,params}) => {
-    const response = await fetch(`http://localhost:8080/posts/${params.id}`);
+    const response = await fetch(`${process.env.REACT_APP_DOMAIN}/posts/${params.id}`);
     if(!response.ok) {
         // code..
         throw new Error("Error occur in your url.")
@@ -58,7 +58,7 @@ export const loader = async ({request,params}) => {
 
 export const action = async ({request,params}) => {
     const token = getToken();
-    const response = await fetch(`http://localhost:8080/posts/${params.id}`,{
+    const response = await fetch(`${process.env.REACT_APP_DOMAIN}/posts/${params.id}`,{
         method : request.method,
         headers : {
         "Authorization" : "Bearer " + token,

@@ -4,6 +4,7 @@ import uuid from 'react-uuid'
 import { getToken } from "../pages/util/auth";
 
 
+
 const PostForm = ({header,btn,post,method}) => {
     const data = useActionData();
 
@@ -97,11 +98,11 @@ export const action = async ({request,params}) => {
       date : data.get("date"),
     }
 
-    let url = "http://localhost:8080/posts";
+    let url = `${process.env.REACT_APP_DOMAIN}/posts`;
 
     if(method === "PATCH") {
         const id = params.id;
-        url = `http://localhost:8080/posts/${id}`
+        url = `${process.env.REACT_APP_DOMAIN}/posts/${id}`
     }
   
     const response = await fetch(url, {

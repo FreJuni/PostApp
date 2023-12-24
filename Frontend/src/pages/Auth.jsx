@@ -2,6 +2,7 @@ import {  redirect,useActionData } from "react-router-dom"
 import Authtication from "../coponents/Authtication";
 
 
+
 const Auth = () => {
     const error = useActionData();
 
@@ -29,7 +30,7 @@ export const action = async ({request,params}) => {
         password : data.get("password")
     }
 
-    const response = await fetch(`http://localhost:8080/${mode}`, {
+    const response = await fetch(`${process.env.REACT_APP_DOMAIN}/${mode}`, {
         method : "POST",
         headers : {
             "Content-Type" : "application/json"

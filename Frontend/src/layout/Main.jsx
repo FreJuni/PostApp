@@ -26,10 +26,10 @@ const Main = () => {
   },[token,submit])
 
   return (
-    <section className="main-con">
+    <section >
       <Nav />
      {
-      state === "loading" ? (<div className="loading-con"><p className="loader loading"></p></div>) : (<Outlet />)
+      state === "loading" ? (<div className="loading-con"><p className="loader loading"></p></div>) : (<article className="main-con"><Outlet /></article>)
      }
     </section>
   )
